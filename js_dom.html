@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JS-DOM</title>
+</head>
+<body id="abc1">
+    
+    <h1><mark>Heading</mark></h1>
+
+    <p id="abc2">Paragraph</p>
+    
+    <p id="pid"></p>
+    
+    <button type="button" onclick="showData()">Click</button>
+    <button type="button" onclick="Data()">New</button>
+    <button type="button" onclick="Color1Demo()">Red</button>
+    <button type="button" onclick="Color2Demo()">Lime</button>
+    <button type="button" onclick="Color3Demo()">Aqua</button>
+
+    <input type="button" onmouseover="Color4Demo" value="xyzz" id="abc3"/>
+
+    <select name="College" id="">
+        <option value="">GOVT Amt</option>
+        <option value="">XYZ</option>
+      <option value=""><button onclick="Data1()">Other</button></option>
+       
+    </select>
+
+    <script>
+
+        function showData(){
+            document.getElementById("pid").innerHTML="New Paragraph" ;
+        }
+        function Data(){
+           var a = document.createElement("p") ;
+            a.innerText = "This is new Paragraph " ;
+            document.body.appendChild(a);
+        }
+        function Data1(){
+            var x = document.createElement("INPUT");
+            x.setAttribute("type", "text");
+             x.setAttribute("value", "Hello World!");
+              document.body.appendChild(x);
+        }
+        function Color1Demo(){
+            document.getElementById("abc1");
+            document.body.style.backgroundColor = "red" ;
+        }
+        function Color2Demo(){
+            document.getElementById("abc1");
+            document.body.style.backgroundColor = "#00ff00" ;
+        }
+        function Color3Demo(){
+            document.getElementById("abc1");
+            document.body.style.backgroundColor = "Aqua" ;
+        }
+        function Color4Demo(){
+            document.getElementById("abc3");
+            document.body.style.Color = "Red" ;
+        }
+
+
+    </script>
+</body>
+</html>

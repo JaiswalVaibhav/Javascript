@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JS-Callback</title>
+</head>
+<body>
+    <script>
+        // Callback -> callback is a function which is :
+                      // passed as an argument to another fuction
+                      // is invoked after some kind of event 
+                      // once its parent function completes , the function passed as an argument is then called/executed
+                      
+        function checkCallBack(){
+            console.log("Hiiii");
+        }
+        
+        function check(name , callBack){
+            console.log(name) ;
+            callBack() ;
+        }
+
+        check("Ele",checkCallBack) ;
+    </script>
+</body>
+</html>

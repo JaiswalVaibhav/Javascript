@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JS-Forms</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form id="xy1">
+    <label for="firstName">FirstName :</label>
+    <input type="text" id="firstName">
+
+    <label for="lastName">LastName :</label>
+    <input type="text" id="lastName">
+
+    <label for="city">City :</label>
+    <input type="text" id="city">
+
+    <button type="button" onclick="showData()">Show</button>
+    <button type="button" onclick="clearData()">Clear</button>
+
+    <p id="p1id"></p>
+    <p id="p2id"></p>
+    <p id="p3id"></p>
+    <p id="p4id"></p>
+
+    </form>
+
+    <script>
+
+        function showData(){
+
+            var firstName = document.getElementById("firstName").value
+            var lastName = document.getElementById("lastName").value
+            var city = document.getElementById("city").value
+
+            document.getElementById("p1id").innerHTML= "FirstName :" + firstName
+            document.getElementById("p2id").innerHTML= "LastName :" + lastName
+            document.getElementById("p3id").innerHTML= "City :" + city
+            
+
+
+            var jsonString = JSON.stringify({"firstName": firstName , "lastName": lastName , "city": city}) ;
+            console.log(jsonString) ;
+
+
+            //XmlHttpRequest
+            //Ajax Call
+            //fetch
+            //axios
+
+            fetch("http://localhost:8080/saveUser",{
+                method : "POST" ,
+                body : jsonString ,
+                headers : {"Content-type" : "application/json"}
+            }).then(response => response.text())
+            .then(res => document.getElementById("p4id").innerHTML= res)
+            .then(res => console.log(res))
+            .catch(error => console.log(error))
+
+        }
+
+        function clearData(){
+
+            document.getElementById("p1id").innerHTML= "" ;
+            document.getElementById("p2id").innerHTML= "" ;
+            document.getElementById("p3id").innerHTML= "" ;
+            document.getElementById("p4id").innerHTML= "" ;
+            document.getElementById("xy1").reset() ;
+
+        }
+    </script>
+
+</body>
+</html>

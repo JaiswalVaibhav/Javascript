@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JS-Promises</title>
+</head>
+<body>
+    <script>
+
+
+        var isActive = true ;
+
+        // ES 5 =>
+
+        // Creating Promise
+
+        var isEmployeeActive = new Promise (
+            function(resolve , reject ){
+                if(isActive){
+                    var employee = {
+                        name : "Mike" ,
+                        city : "Hawkins" 
+                    }
+                    resolve(employee) ;
+                }else{
+                    var reason = new Error("Employee is not active") ;
+                    reject(reason) ;
+                }
+            }
+        )
+        
+
+        // Calling Promises
+
+        var checkEmployee = function(){
+
+            console.log("hellloooo") ;
+
+            isEmployeeActive
+            .then(function(fulfilled){
+                console.log(fulfilled) ;
+            }) 
+            .catch(function(error){
+                console.log(error.message) ;
+            })
+
+            console.log("hhhhiiii") ;
+        }
+
+        checkEmployee() ;
+
+
+
+
+        // ES 6 =>
+
+
+        var isEmployeeActive1 = new Promise (
+            (resolve , reject ) => {
+                if(isActive){
+                    var employee = {
+                        name : "Ele" ,
+                        city : "Hawkins" 
+                    }
+                    resolve(employee) ;
+                }else{
+                    var reason = new Error("Employee 1 is not active") ;
+                    reject(reason) ;
+                }
+            }
+        )
+
+
+        var checkEmployee1 = () => {
+
+            console.log("hellloooo 1") ;
+
+            isEmployeeActive1
+            .then((fulfilled) => {
+                console.log(fulfilled) ;
+            }) 
+            .catch((error) => {
+                console.log(error.message) ;
+            })
+
+            console.log("hhhhiiii 1") ;
+        }
+
+        checkEmployee1() ;
+
+     
+        // ES 7 / Async Await
+
+
+        var isEmployeeActive2 = new Promise (
+            (resolve , reject ) => {
+                if(isActive){
+                    var employee = {
+                        name : "will" ,
+                        city : "Hawkins" 
+                    }
+                    resolve(employee) ;
+                }else{
+                    var reason = new Error("Employee 2 is not active") ;
+                    reject(reason) ;
+                }
+            }
+        )
+
+
+        async function checkEmployee2() {
+
+            console.log("hellloooo 2") ;
+
+            let employee = await isEmployeeActive2
+            console.log(employee) ;
+
+            console.log("hhhhiiii 2") ;
+        }
+
+        checkEmployee2() ;
+
+    </script>
+</body>
+</html>
